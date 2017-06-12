@@ -21,17 +21,29 @@ namespace WcfServiceClient.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/sum", ReplyAction="http://tempuri.org/IService1/sumResponse")]
         System.Threading.Tasks.Task<int> sumAsync(int num1, int num2);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTraceDate", ReplyAction="http://tempuri.org/IService1/GetTraceDateResponse")]
-        string[] GetTraceDate(string FromTown, System.DateTime FromTime, string ToTown, System.DateTime ToTime);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTraceDateDirection", ReplyAction="http://tempuri.org/IService1/GetTraceDateDirectionResponse")]
+        string[] GetTraceDateDirection(string FromTown, System.DateTime FromTime, string ToTown, System.DateTime ToTime);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTraceDate", ReplyAction="http://tempuri.org/IService1/GetTraceDateResponse")]
-        System.Threading.Tasks.Task<string[]> GetTraceDateAsync(string FromTown, System.DateTime FromTime, string ToTown, System.DateTime ToTime);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTraceDateDirection", ReplyAction="http://tempuri.org/IService1/GetTraceDateDirectionResponse")]
+        System.Threading.Tasks.Task<string[]> GetTraceDateDirectionAsync(string FromTown, System.DateTime FromTime, string ToTown, System.DateTime ToTime);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTrace", ReplyAction="http://tempuri.org/IService1/GetTraceResponse")]
-        string[] GetTrace(string FromTown, string ToTown);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTraceDateInDirection", ReplyAction="http://tempuri.org/IService1/GetTraceDateInDirectionResponse")]
+        string[] GetTraceDateInDirection(string FromTown, System.DateTime FromTime, string ToTown, System.DateTime ToTime);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTrace", ReplyAction="http://tempuri.org/IService1/GetTraceResponse")]
-        System.Threading.Tasks.Task<string[]> GetTraceAsync(string FromTown, string ToTown);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTraceDateInDirection", ReplyAction="http://tempuri.org/IService1/GetTraceDateInDirectionResponse")]
+        System.Threading.Tasks.Task<string[]> GetTraceDateInDirectionAsync(string FromTown, System.DateTime FromTime, string ToTown, System.DateTime ToTime);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTraceInDirection", ReplyAction="http://tempuri.org/IService1/GetTraceInDirectionResponse")]
+        string[] GetTraceInDirection(string FromTown, string ToTown);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTraceInDirection", ReplyAction="http://tempuri.org/IService1/GetTraceInDirectionResponse")]
+        System.Threading.Tasks.Task<string[]> GetTraceInDirectionAsync(string FromTown, string ToTown);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTraceDirection", ReplyAction="http://tempuri.org/IService1/GetTraceDirectionResponse")]
+        string[] GetTraceDirection(string FromTown, string ToTown);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTraceDirection", ReplyAction="http://tempuri.org/IService1/GetTraceDirectionResponse")]
+        System.Threading.Tasks.Task<string[]> GetTraceDirectionAsync(string FromTown, string ToTown);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -69,20 +81,36 @@ namespace WcfServiceClient.ServiceReference1 {
             return base.Channel.sumAsync(num1, num2);
         }
         
-        public string[] GetTraceDate(string FromTown, System.DateTime FromTime, string ToTown, System.DateTime ToTime) {
-            return base.Channel.GetTraceDate(FromTown, FromTime, ToTown, ToTime);
+        public string[] GetTraceDateDirection(string FromTown, System.DateTime FromTime, string ToTown, System.DateTime ToTime) {
+            return base.Channel.GetTraceDateDirection(FromTown, FromTime, ToTown, ToTime);
         }
         
-        public System.Threading.Tasks.Task<string[]> GetTraceDateAsync(string FromTown, System.DateTime FromTime, string ToTown, System.DateTime ToTime) {
-            return base.Channel.GetTraceDateAsync(FromTown, FromTime, ToTown, ToTime);
+        public System.Threading.Tasks.Task<string[]> GetTraceDateDirectionAsync(string FromTown, System.DateTime FromTime, string ToTown, System.DateTime ToTime) {
+            return base.Channel.GetTraceDateDirectionAsync(FromTown, FromTime, ToTown, ToTime);
         }
         
-        public string[] GetTrace(string FromTown, string ToTown) {
-            return base.Channel.GetTrace(FromTown, ToTown);
+        public string[] GetTraceDateInDirection(string FromTown, System.DateTime FromTime, string ToTown, System.DateTime ToTime) {
+            return base.Channel.GetTraceDateInDirection(FromTown, FromTime, ToTown, ToTime);
         }
         
-        public System.Threading.Tasks.Task<string[]> GetTraceAsync(string FromTown, string ToTown) {
-            return base.Channel.GetTraceAsync(FromTown, ToTown);
+        public System.Threading.Tasks.Task<string[]> GetTraceDateInDirectionAsync(string FromTown, System.DateTime FromTime, string ToTown, System.DateTime ToTime) {
+            return base.Channel.GetTraceDateInDirectionAsync(FromTown, FromTime, ToTown, ToTime);
+        }
+        
+        public string[] GetTraceInDirection(string FromTown, string ToTown) {
+            return base.Channel.GetTraceInDirection(FromTown, ToTown);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetTraceInDirectionAsync(string FromTown, string ToTown) {
+            return base.Channel.GetTraceInDirectionAsync(FromTown, ToTown);
+        }
+        
+        public string[] GetTraceDirection(string FromTown, string ToTown) {
+            return base.Channel.GetTraceDirection(FromTown, ToTown);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetTraceDirectionAsync(string FromTown, string ToTown) {
+            return base.Channel.GetTraceDirectionAsync(FromTown, ToTown);
         }
     }
 }

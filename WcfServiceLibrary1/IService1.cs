@@ -15,7 +15,10 @@ namespace WcfServiceLibrary1
         int sum(int num1, int num2);        
 
         [OperationContract]
-        List<String> GetTraceDate(String FromTown, DateTime FromTime, String ToTown, DateTime ToTime);
+        List<String> GetTraceDateDirection(String FromTown, DateTime FromTime, String ToTown, DateTime ToTime);
+
+        [OperationContract]
+        List<String> GetTraceDateInDirection(String FromTown, DateTime FromTime, String ToTown, DateTime ToTime);
 
         [OperationContract]
         List<String> GetTraceInDirection(String FromTown, String ToTown);

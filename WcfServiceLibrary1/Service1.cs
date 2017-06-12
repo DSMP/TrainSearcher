@@ -35,27 +35,42 @@ namespace WcfServiceLibrary1
 
         public List<string> GetTraceInDirection(string fromTown, string toTown)
         {
-            List<Trace> fromTraces = new List<Trace>();
+            List<Trace> MainTraces = new List<Trace>();
             List<string> finish = new List<string>();
             for (int i = 0; i < Traces.Count; i++)
             {
                 if (Traces[i].FromTown1.Equals(fromTown))
                 {
-                    fromTraces.Add(Traces[i]);
+                    MainTraces.Add(Traces[i]);
                 }
             }
-            for (int i = 0; i < fromTraces.Count; i++)
+            for (int i = 0; i < MainTraces.Count; i++)
             {
                 if (Traces[i].FromTown1.Equals(fromTown))
                 {
-                    fromTraces.Add(Traces[i]);
+                    MainTraces.Add(Traces[i]);
                 }
             }
             return finish;
         }
 
 
-        public List<string> GetTraceDate(string fromTown, DateTime fromTime, string toTown, DateTime toTime)
+        public List<string> GetTraceDateDirection(string fromTown, DateTime fromTime, string toTown, DateTime toTime)
+        {
+            List<Trace> fromTraces = new List<Trace>();
+            List<string> finish = new List<string>();
+            for (int i = 0; i < Traces.Count; i++)
+            {
+                if (Traces[i].FromTown1.Equals(fromTown) && Traces[i].ToTown1.Equals(toTown)
+                    && Traces[i].FromDate1 >= fromTime && Traces[i].ToDate1 <= toTime)
+                {
+                    finish.Add(Traces[i].ToString());
+                }
+            }
+            return finish;
+
+        }
+        public List<string> GetTraceDateInDirection(string FromTown, DateTime FromTime, string ToTown, DateTime ToTime)
         {
             throw new NotImplementedException();
         }
@@ -127,5 +142,6 @@ namespace WcfServiceLibrary1
 
             }
         }
+
     }
 }
