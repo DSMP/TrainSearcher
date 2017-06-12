@@ -4,3 +4,9 @@ D:\Documents\Visual Studio 2015\Projects\WcfServiceLibrary1\bin\Debug\WcfService
 D:\Documents\Visual Studio 2015\Projects\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.dll
 D:\Documents\Visual Studio 2015\Projects\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.pdb
 D:\Documents\Visual Studio 2015\Projects\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.csprojResolveAssemblyReference.cache
+D:\Documents\Visual Studio 2015\GitProjects\WCFTrains\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.dll.config
+D:\Documents\Visual Studio 2015\GitProjects\WCFTrains\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.dll
+D:\Documents\Visual Studio 2015\GitProjects\WCFTrains\WcfServiceLibrary1\bin\Debug\WcfServiceLibrary1.pdb
+D:\Documents\Visual Studio 2015\GitProjects\WCFTrains\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.csprojResolveAssemblyReference.cache
+D:\Documents\Visual Studio 2015\GitProjects\WCFTrains\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.dll
+D:\Documents\Visual Studio 2015\GitProjects\WCFTrains\WcfServiceLibrary1\obj\Debug\WcfServiceLibrary1.pdb

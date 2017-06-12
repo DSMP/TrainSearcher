@@ -31,6 +31,7 @@ namespace WcfServiceHost
             host.Open();
             Console.WriteLine("Service is host at " + DateTime.Now.ToString());
             Console.WriteLine("Host is running... Press  key to stop");
+            Service1 testService1 = new Service1();
             Console.ReadLine();
         }
     }
