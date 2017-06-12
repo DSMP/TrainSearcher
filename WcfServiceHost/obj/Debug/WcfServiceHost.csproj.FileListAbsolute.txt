@@ -1,0 +1,11 @@
+D:\Documents\Visual Studio 2015\Projects\WcfServiceHost\bin\Debug\WcfServiceHost.exe.config
+D:\Documents\Visual Studio 2015\Projects\WcfServiceHost\bin\Debug\WcfServiceHost.exe
+D:\Documents\Visual Studio 2015\Projects\WcfServiceHost\bin\Debug\WcfServiceHost.pdb
+D:\Documents\Visual Studio 2015\Projects\WcfServiceHost\bin\Debug\WcfServiceLibrary1.dll
+D:\Documents\Visual Studio 2015\Projects\WcfServiceHost\bin\Debug\WcfServiceLibrary1.pdb
+D:\Documents\Visual Studio 2015\Projects\WcfServiceHost\obj\Debug\WcfServiceHost.csprojResolveAssemblyReference.cache
+D:\Documents\Visual Studio 2015\Projects\WcfServiceHost\obj\Debug\WcfServiceHost.exe
+D:\Documents\Visual Studio 2015\Projects\WcfServiceHost\obj\Debug\WcfServiceHost.pdb
+D:\Documents\Visual Studio 2015\GitProjects\WCFTrains\WcfServiceHost\bin\Debug\WcfServiceHost.exe.config
+D:\Documents\Visual Studio 2015\GitProjects\WCFTrains\WcfServiceHost\obj\Debug\WcfServiceHost.exe
+D:\Documents\Visual Studio 2015\GitProjects\WCFTrains\WcfServiceHost\obj\Debug\WcfServiceHost.pdb
