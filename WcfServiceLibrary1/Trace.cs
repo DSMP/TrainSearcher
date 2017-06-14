@@ -6,72 +6,21 @@ using System.Threading.Tasks;
 
 namespace WcfServiceLibrary1
 {
-    class Trace : Object
+    public class Trace : Object
     {
-        String  FromTown;
-        String ToTown;
-        DateTime FromDate;
-        DateTime ToDate;
+        public Vertex FromTown { get; }
+        public Vertex ToTown { get; }
+        public DateTime FromDate { get; }
+        public DateTime ToDate { get; }
 
-        public Trace(String fromTown, DateTime FromDate, String toTown, DateTime toDate)
+        public Trace(Vertex fromTown, DateTime FromDate, Vertex toTown, DateTime toDate)
         {
             this.FromTown = fromTown;
             this.FromDate = FromDate;
             this.ToTown = toTown;
             this.ToDate = toDate;
         }
-
-        public string FromTown1
-        {
-            get
-            {
-                return FromTown;
-            }
-
-            set
-            {
-                FromTown = value;
-            }
-        }
-
-        public string ToTown1
-        {
-            get
-            {
-                return ToTown;
-            }
-
-            set
-            {
-                ToTown = value;
-            }
-        }
-
-        public DateTime FromDate1
-        {
-            get
-            {
-                return FromDate;
-            }
-
-            set
-            {
-                FromDate = value;
-            }
-        }
-
-        public DateTime ToDate1
-        {
-            get
-            {
-                return ToDate;
-            }
-
-            set
-            {
-                ToDate = value;
-            }
-        }
+        
         public override string ToString()
         {
             return FromTown + " " + FromDate + " " + ToTown + " " + ToDate;

@@ -18,7 +18,7 @@ namespace WcfServiceLibrary1
         List<String> GetTraceDateDirection(String FromTown, DateTime FromTime, String ToTown, DateTime ToTime);
 
         [OperationContract]
-        List<String> GetTraceDateInDirection(String FromTown, DateTime FromTime, String ToTown, DateTime ToTime);
+        List<List<String>> GetTraceDateInDirection(String FromTown, DateTime FromTime, String ToTown, DateTime ToTime);
 
         [OperationContract]
         List<String> GetTraceInDirection(String FromTown, String ToTown);

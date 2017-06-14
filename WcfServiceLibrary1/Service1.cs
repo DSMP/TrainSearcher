@@ -25,7 +25,7 @@ namespace WcfServiceLibrary1
             List<string> finish = new List<string>();
             for (int i = 0; i < Traces.Count; i++)
             {
-                if (Traces[i].FromTown1.Equals(fromTown) && Traces[i].ToTown1.Equals(toTown))
+                if (Traces[i].FromTown.Value.Equals(fromTown) && Traces[i].ToTown.Value.Equals(toTown))
                 {
                     finish.Add(Traces[i].ToString());
                 }
@@ -39,14 +39,14 @@ namespace WcfServiceLibrary1
             List<string> finish = new List<string>();
             for (int i = 0; i < Traces.Count; i++)
             {
-                if (Traces[i].FromTown1.Equals(fromTown))
+                if (Traces[i].FromTown.Equals(fromTown))
                 {
                     MainTraces.Add(Traces[i]);
                 }
             }
             for (int i = 0; i < MainTraces.Count; i++)
             {
-                if (Traces[i].FromTown1.Equals(fromTown))
+                if (Traces[i].FromTown.Equals(fromTown))
                 {
                     MainTraces.Add(Traces[i]);
                 }
@@ -61,8 +61,8 @@ namespace WcfServiceLibrary1
             List<string> finish = new List<string>();
             for (int i = 0; i < Traces.Count; i++)
             {
-                if (Traces[i].FromTown1.Equals(fromTown) && Traces[i].ToTown1.Equals(toTown)
-                    && Traces[i].FromDate1 >= fromTime && Traces[i].ToDate1 <= toTime)
+                if (Traces[i].FromTown.Equals(fromTown) && Traces[i].ToTown.Equals(toTown)
+                    && ((Traces[i].FromDate >= fromTime) && (Traces[i].ToDate <= toTime)))
                 {
                     finish.Add(Traces[i].ToString());
                 }
@@ -70,9 +70,52 @@ namespace WcfServiceLibrary1
             return finish;
 
         }
-        public List<string> GetTraceDateInDirection(string FromTown, DateTime FromTime, string ToTown, DateTime ToTime)
+        public List<List<string>> GetTraceDateInDirection(string FromTown, DateTime FromTime, string ToTown, DateTime ToTime)
         {
-            throw new NotImplementedException();
+            Graph graph = Graph.FromCsv(Path.Combine(Environment.CurrentDirectory, @"Data\", "trains.csv")); //@"D:\Pobrane\trains.csv"
+
+            if (!graph.ContainsVertex(FromTown) || !graph.ContainsVertex(ToTown))
+            {
+                throw new FaultException("No such city in database.");
+            }
+
+
+            Finder pathFinder = new Finder(graph, graph.GeVertexByName(FromTown), graph.GeVertexByName(ToTown));
+            try
+            {
+                if (FromTime != null)
+                {
+                    pathFinder.LeaveTime = (FromTime);
+                }
+
+                if (ToTime != null)
+                {
+                    pathFinder.ArrivalTime = (ToTime);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new FaultException("Date parsing error.");
+            }
+            List<List<Trace>> paths = pathFinder.GetAllPaths();
+            List < List <string>> toReturn = new List<List<string>>();
+
+            foreach (var path in paths)
+            {
+                List<string> pathList = new List<string>();
+
+                foreach (var trace in path)
+                {
+                    pathList.Add("FROM: " + trace.FromTown + " AT: " + trace.FromDate + " TO: " + trace.ToTown + " AT: " + trace.ToDate);
+                }
+
+                List<string> newPath = new List<string>();
+                newPath = pathList;
+                toReturn.Add(newPath);
+            }
+
+            return toReturn;
+            
         }
 
         // This Function Returns summation of two integer numbers
@@ -88,7 +131,7 @@ namespace WcfServiceLibrary1
             foreach (string s in tab)
             {
                 string[] column = s.Split(',');
-                list.Add(new Trace(column[0], DateTime.Parse(column[1]), column[2], DateTime.Parse(column[3])));
+                list.Add(new Trace(new Vertex(column[0]), DateTime.Parse(column[1]), new Vertex(column[2]), DateTime.Parse(column[3])));
             }
             return list;
         }
@@ -108,7 +151,7 @@ namespace WcfServiceLibrary1
                     }
                     if (stateTown)
                     {
-                        if (Traces[i].ToTown1 == Towns[j])
+                        if (Traces[i].ToTown.Value == Towns[j])
                         {
                             isNewTown = false;
                             break;
@@ -116,7 +159,7 @@ namespace WcfServiceLibrary1
                     }
                     else
                     {
-                        if (Traces[i].FromTown1 == Towns[j])
+                        if (Traces[i].FromTown.Value == Towns[j])
                         {
                             isNewTown = false;
                             break;
@@ -129,14 +172,14 @@ namespace WcfServiceLibrary1
                 {
                     if (isNewTown)
                     {
-                        Towns.Add(Traces[i].ToTown1);
+                        Towns.Add(Traces[i].ToTown.Value);
                     }
                 }
                 else
                 {
                     if (isNewTown)
                     {
-                        Towns.Add(Traces[i].FromTown1);
+                        Towns.Add(Traces[i].FromTown.Value);
                     }
                 }
 

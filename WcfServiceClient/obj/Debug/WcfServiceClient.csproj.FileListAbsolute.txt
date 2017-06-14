@@ -9,3 +9,5 @@ D:\Documents\Visual Studio 2015\GitProjects\WCFTrains\WcfServiceClient\obj\Debug
 D:\Documents\Visual Studio 2015\GitProjects\WCFTrains\WcfServiceClient\bin\Debug\WcfServiceClient.exe
 D:\Documents\Visual Studio 2015\GitProjects\WCFTrains\WcfServiceClient\bin\Debug\WcfServiceClient.pdb
 D:\Documents\Visual Studio 2015\GitProjects\WCFTrains\WcfServiceClient\obj\Debug\WcfServiceClient.csprojResolveAssemblyReference.cache
+D:\Documents\Visual Studio 2015\GitProjects\WCFTrains\WcfServiceClient\obj\Debug\WcfServiceClient.Form1.resources
+D:\Documents\Visual Studio 2015\GitProjects\WCFTrains\WcfServiceClient\obj\Debug\WcfServiceClient.csproj.GenerateResource.Cache
