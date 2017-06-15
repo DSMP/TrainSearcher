@@ -57,6 +57,10 @@ namespace WcfServiceLibrary1
         
         public List<string> GetTraceDateDirection(string fromTown, DateTime fromTime, string toTown, DateTime toTime)
         {
+            if (!Towns.Contains(fromTown.ToString()) || !Towns.Contains(toTown.ToString()))
+            {
+                throw new FaultException("No such city in database.");
+            }
             List<Trace> fromTraces = new List<Trace>();
             List<string> finish = new List<string>();
             for (int i = 0; i < Traces.Count; i++)
