@@ -54,15 +54,15 @@ namespace WcfServiceLibrary1
             return finish;
         }
 
-
+        
         public List<string> GetTraceDateDirection(string fromTown, DateTime fromTime, string toTown, DateTime toTime)
         {
             List<Trace> fromTraces = new List<Trace>();
             List<string> finish = new List<string>();
             for (int i = 0; i < Traces.Count; i++)
             {
-                if (Traces[i].FromTown.Equals(fromTown) && Traces[i].ToTown.Equals(toTown)
-                    && ((Traces[i].FromDate >= fromTime) && (Traces[i].ToDate <= toTime)))
+                if (Traces[i].FromTown.ToString().Contains(fromTown) && Traces[i].ToTown.ToString().Contains(toTown)
+                    && (DateTime.Compare(Traces[i].FromDate, fromTime) >= 0 && DateTime.Compare(Traces[i].ToDate, toTime) <= 0))
                 {
                     finish.Add(Traces[i].ToString());
                 }
