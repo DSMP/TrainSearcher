@@ -39,11 +39,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.OutputTextBox = new System.Windows.Forms.RichTextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // SearchButton
             // 
-            this.SearchButton.Location = new System.Drawing.Point(110, 208);
+            this.SearchButton.Location = new System.Drawing.Point(55, 208);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(75, 23);
             this.SearchButton.TabIndex = 0;
@@ -82,7 +83,7 @@
             // DirectionChecker
             // 
             this.DirectionChecker.AutoSize = true;
-            this.DirectionChecker.Location = new System.Drawing.Point(208, 212);
+            this.DirectionChecker.Location = new System.Drawing.Point(137, 208);
             this.DirectionChecker.Name = "DirectionChecker";
             this.DirectionChecker.Size = new System.Drawing.Size(118, 17);
             this.DirectionChecker.TabIndex = 7;
@@ -133,11 +134,23 @@
             this.OutputTextBox.TabIndex = 12;
             this.OutputTextBox.Text = "";
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(137, 232);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(151, 17);
+            this.checkBox1.TabIndex = 13;
+            this.checkBox1.Text = "Bez przedzialu czasowego";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(476, 421);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.OutputTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -169,5 +182,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox OutputTextBox;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

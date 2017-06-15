@@ -24,25 +24,60 @@ namespace WcfServiceClient
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            if (DirectionChecker.Checked)
+            OutputTextBox.Text = "";
+            try
             {
-                OutputTextBox.Lines = 
-                Client.GetTraceDateDirection(FromTownText.Text, DateTimeFrom.Value, ToTownText.Text, DateTimeTo.Value);
-            }
-            else
-            {
-                var traces =
-                Client.GetTraceDateInDirection(FromTownText.Text, DateTimeFrom.Value, ToTownText.Text, DateTimeTo.Value).ToList();
-                for (int i = 0; i < traces.Count; i++)
+                if (DirectionChecker.Checked)
                 {
-                    for (int j = 0; j < traces[i].Length; j++)
+                    OutputTextBox.Lines =
+                    Client.GetTraceDateDirection(FromTownText.Text, DateTimeFrom.Value, ToTownText.Text, DateTimeTo.Value);
+                }
+                else
+                {
+                    var traces =
+                    Client.GetTraceDateInDirection(FromTownText.Text, DateTimeFrom.Value, ToTownText.Text, DateTimeTo.Value).ToList();
+                    for (int i = 0; i < traces.Count; i++)
                     {
-                        OutputTextBox.AppendText(traces[i][j]);
+                        OutputTextBox.AppendText(" " + (i+1).ToString() + ": ");
+                        for (int j = 0; j < traces[i].Length; j++)
+                        {
+                            OutputTextBox.AppendText(traces[i][j]);
+                            OutputTextBox.AppendText(" \n ");
+                        }
+                        OutputTextBox.AppendText("\n");
                     }
-                    Console.WriteLine("");
+                }
+                if (OutputTextBox.Text.Equals(""))
+                {
+                    MessageBox.Show("Brak Takich połączeń");
                 }
             }
+            catch (System.ServiceModel.EndpointNotFoundException)
+            {
+                MessageBox.Show("Server nie odpowiada, prawdopodobnie jest wyłączony");
+            }
+            catch (System.ServiceModel.CommunicationObjectFaultedException)
+            {
+                MessageBox.Show("Server nie odpowiada, prawdopodobnie jest wyłączony");
+            }            
+            catch (Exception exc)
+            {
+                OutputTextBox.Text = "";
+                MessageBox.Show(exc.Message);
+            }
+            finally
+            {
+                Client = new Service1Client();
+            }
+            
 
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            DateTimeFrom.Enabled = !checkBox1.Checked;
+            DateTimeTo.Enabled = !checkBox1.Checked;
+            DateTimeFrom.Value = new DateTime(1900,1,1,0,0,0);
         }
     }
 }
