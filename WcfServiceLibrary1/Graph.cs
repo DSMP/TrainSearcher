@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualBasic.FileIO;
+using System.IO;
 
 namespace WcfServiceLibrary1
 {
@@ -11,6 +12,15 @@ namespace WcfServiceLibrary1
     {
         ISet<Vertex> vertices = new HashSet<Vertex>();
         ISet<Trace> connections = new HashSet<Trace>();
+
+        public void setVertices(List<String> towns)
+        {
+            vertices = new HashSet<Vertex>();
+            for (int i = 0; i < towns.Count; i++)
+            {
+                vertices.Add(new Vertex(towns[i]));
+            }
+        }
 
         public void AddVertex(Vertex vertex)
         {
@@ -54,27 +64,36 @@ namespace WcfServiceLibrary1
                 parser.TextFieldType = FieldType.Delimited;
                 parser.SetDelimiters(",");
                 parser.ReadFields(); // ommiting header
-                while (!parser.EndOfData)
-                {
+                //while (!parser.EndOfData)
+                //{
                     //Process row
-                    string[] fields = parser.ReadFields();
-                    string sourceCity = fields[0];
-                    DateTime leavingTime = DateTime.Parse(fields[1]);
-                    string targetCity = fields[2];
-                    DateTime arrivalTime = DateTime.Parse(fields[3]);
+                    //string[] fields = parser.ReadFields();
+                    //string sourceCity = fields[0];
+                    //DateTime leavingTime = DateTime.Parse(fields[1]);
+                    //string targetCity = fields[2];
+                    //DateTime arrivalTime = DateTime.Parse(fields[3]);
 
-                    Trace newConnection = new Trace(new Vertex(sourceCity), leavingTime, new Vertex(targetCity), arrivalTime);
+                    string[] tab = File.ReadAllLines(csvPath);
+                    //List<Trace> list = new List<Trace>();
+                    foreach (string s in tab)
+                    {
+                        string[] column = s.Split(',');
+                    Trace newConnection = new Trace(new Vertex(column[0]), DateTime.Parse(column[1]), new Vertex(column[2]), DateTime.Parse(column[3]));
 
                     if (DateTime.Compare(newConnection.FromDate, newConnection.ToDate) < 0)
                     {
                         graph.AddConnectionWithVertices(newConnection);
                     }
-                    
                 }
+                    
+                    
+                //}
             }
 
             return graph;
         }
+        
+            //return list;
 
         public void CleanState()
         {

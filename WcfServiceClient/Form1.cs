@@ -42,7 +42,7 @@ namespace WcfServiceClient
                         for (int j = 0; j < traces[i].Length; j++)
                         {
                             OutputTextBox.AppendText(traces[i][j]);
-                            OutputTextBox.AppendText(" \n ");
+                            OutputTextBox.AppendText(" \t ");
                         }
                         OutputTextBox.AppendText("\n");
                     }

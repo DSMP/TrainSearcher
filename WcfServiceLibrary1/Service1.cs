@@ -68,7 +68,10 @@ namespace WcfServiceLibrary1
                 if (Traces[i].FromTown.ToString().Contains(fromTown) && Traces[i].ToTown.ToString().Contains(toTown)
                     && (DateTime.Compare(Traces[i].FromDate, fromTime) >= 0 && DateTime.Compare(Traces[i].ToDate, toTime) <= 0))
                 {
-                    finish.Add(Traces[i].ToString());
+                    if (DateTime.Compare(Traces[i].FromDate, Traces[i].ToDate) < 0)
+                    {
+                        finish.Add(Traces[i].ToString());
+                    }
                 }
             }
             return finish;
@@ -77,6 +80,8 @@ namespace WcfServiceLibrary1
         public List<List<string>> GetTraceDateInDirection(string FromTown, DateTime FromTime, string ToTown, DateTime ToTime)
         {
             Graph graph = Graph.FromCsv(Path.Combine(Environment.CurrentDirectory, @"Data\", "trains.csv")); //@"D:\Pobrane\trains.csv"
+
+            graph.setVertices(Towns);
 
             if (!graph.ContainsVertex(FromTown) || !graph.ContainsVertex(ToTown))
             {
