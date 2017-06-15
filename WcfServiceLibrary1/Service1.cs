@@ -110,7 +110,7 @@ namespace WcfServiceLibrary1
 
                 foreach (var trace in path)
                 {
-                    pathList.Add("FROM: " + trace.FromTown + " AT: " + trace.FromDate + " TO: " + trace.ToTown + " AT: " + trace.ToDate);
+                    pathList.Add(trace.ToString());//"FROM: " + trace.FromTown + " AT: " + trace.FromDate + " TO: " + trace.ToTown + " AT: " + trace.ToDate
                 }
 
                 List<string> newPath = new List<string>();

@@ -23,7 +23,7 @@ namespace WcfServiceLibrary1
         
         public override string ToString()
         {
-            return FromTown + " " + FromDate + " " + ToTown + " " + ToDate;
+            return FromTown + " " + FromDate + " => " + ToTown + " " + ToDate;
         }
     }
 }
