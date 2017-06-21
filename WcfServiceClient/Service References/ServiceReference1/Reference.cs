@@ -22,12 +22,14 @@ namespace WcfServiceClient.ServiceReference1 {
         System.Threading.Tasks.Task<int> sumAsync(int num1, int num2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTraceDateDirection", ReplyAction="http://tempuri.org/IService1/GetTraceDateDirectionResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(System.ServiceModel.FaultException), Action="http://tempuri.org/IService1/GetTraceDateDirectionFaultExceptionFault", Name="FaultException", Namespace="http://schemas.datacontract.org/2004/07/System.ServiceModel")]
         string[] GetTraceDateDirection(string FromTown, System.DateTime FromTime, string ToTown, System.DateTime ToTime);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTraceDateDirection", ReplyAction="http://tempuri.org/IService1/GetTraceDateDirectionResponse")]
         System.Threading.Tasks.Task<string[]> GetTraceDateDirectionAsync(string FromTown, System.DateTime FromTime, string ToTown, System.DateTime ToTime);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTraceDateInDirection", ReplyAction="http://tempuri.org/IService1/GetTraceDateInDirectionResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(System.ServiceModel.FaultException), Action="http://tempuri.org/IService1/GetTraceDateInDirectionFaultExceptionFault", Name="FaultException", Namespace="http://schemas.datacontract.org/2004/07/System.ServiceModel")]
         string[][] GetTraceDateInDirection(string FromTown, System.DateTime FromTime, string ToTown, System.DateTime ToTime);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTraceDateInDirection", ReplyAction="http://tempuri.org/IService1/GetTraceDateInDirectionResponse")]

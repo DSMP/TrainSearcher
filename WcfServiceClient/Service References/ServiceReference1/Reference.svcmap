@@ -22,11 +22,13 @@
     <MetadataSource Address="http://localhost:8090/WcfServiceLibrary1/Service1" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Service12.xsd" MetadataType="Schema" ID="cdf54c55-3669-4f1c-b67a-60420c97b61f" SourceId="1" SourceUrl="http://localhost:8090/WcfServiceLibrary1/Service1?xsd=xsd2" />
-    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="025fb9b4-9afc-4b15-9fa3-7f2b966aa087" SourceId="1" SourceUrl="http://localhost:8090/WcfServiceLibrary1/Service1?wsdl" />
-    <MetadataFile FileName="Service11.xsd" MetadataType="Schema" ID="c1756fa6-120b-41e3-a375-decf05430e6f" SourceId="1" SourceUrl="http://localhost:8090/WcfServiceLibrary1/Service1?xsd=xsd0" />
     <MetadataFile FileName="Service1.disco" MetadataType="Disco" ID="e856fc54-f9c6-44b0-a2cd-f6bbaa80f169" SourceId="1" SourceUrl="http://localhost:8090/WcfServiceLibrary1/Service1?disco" />
+    <MetadataFile FileName="Service13.xsd" MetadataType="Schema" ID="3b1a852b-af8c-44e1-b8c7-cdfaca5a6a2c" SourceId="1" SourceUrl="http://localhost:8090/WcfServiceLibrary1/Service1?xsd=xsd4" />
+    <MetadataFile FileName="Service12.xsd" MetadataType="Schema" ID="cdf54c55-3669-4f1c-b67a-60420c97b61f" SourceId="1" SourceUrl="http://localhost:8090/WcfServiceLibrary1/Service1?xsd=xsd2" />
+    <MetadataFile FileName="Service131.xsd" MetadataType="Schema" ID="1d064c2d-894a-4dc9-afc4-57274ecfee02" SourceId="1" SourceUrl="http://localhost:8090/WcfServiceLibrary1/Service1?xsd=xsd3" />
+    <MetadataFile FileName="Service11.xsd" MetadataType="Schema" ID="c1756fa6-120b-41e3-a375-decf05430e6f" SourceId="1" SourceUrl="http://localhost:8090/WcfServiceLibrary1/Service1?xsd=xsd0" />
     <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="703d77d8-c7fa-4309-9f1b-372c2a0a9cb9" SourceId="1" SourceUrl="http://localhost:8090/WcfServiceLibrary1/Service1?xsd=xsd1" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="025fb9b4-9afc-4b15-9fa3-7f2b966aa087" SourceId="1" SourceUrl="http://localhost:8090/WcfServiceLibrary1/Service1?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

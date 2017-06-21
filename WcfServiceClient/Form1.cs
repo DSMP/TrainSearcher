@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -52,11 +53,15 @@ namespace WcfServiceClient
                     MessageBox.Show("Brak Takich połączeń");
                 }
             }
-            catch (System.ServiceModel.EndpointNotFoundException)
+            catch (FaultException faultMsg)
+            {
+                MessageBox.Show(faultMsg.Message);
+            }
+            catch (EndpointNotFoundException)
             {
                 MessageBox.Show("Server nie odpowiada, prawdopodobnie jest wyłączony");
             }
-            catch (System.ServiceModel.CommunicationObjectFaultedException)
+            catch (CommunicationObjectFaultedException)
             {
                 MessageBox.Show("Server nie odpowiada, prawdopodobnie jest wyłączony");
             }            

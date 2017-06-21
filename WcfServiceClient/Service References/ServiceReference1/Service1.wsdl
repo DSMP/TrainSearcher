@@ -172,6 +172,25 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IService1_GetTraceDateDirection_FaultExceptionFault_Fault">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="WSHttpBinding_IService1_GetTraceDateInDirection_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -192,6 +211,25 @@
     </wsp:ExactlyOne>
   </wsp:Policy>
   <wsp:Policy wsu:Id="WSHttpBinding_IService1_GetTraceDateInDirection_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IService1_GetTraceDateInDirection_FaultExceptionFault_Fault">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -290,7 +328,9 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8090/WcfServiceLibrary1/Service1?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8090/WcfServiceLibrary1/Service1?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8090/WcfServiceLibrary1/Service1?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.ServiceModel" />
       <xsd:import schemaLocation="http://localhost:8090/WcfServiceLibrary1/Service1?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:8090/WcfServiceLibrary1/Service1?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_sum_InputMessage">
@@ -305,11 +345,17 @@
   <wsdl:message name="IService1_GetTraceDateDirection_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetTraceDateDirectionResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetTraceDateDirection_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q1:FaultException" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetTraceDateInDirection_InputMessage">
     <wsdl:part name="parameters" element="tns:GetTraceDateInDirection" />
   </wsdl:message>
   <wsdl:message name="IService1_GetTraceDateInDirection_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetTraceDateInDirectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTraceDateInDirection_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q2:FaultException" />
   </wsdl:message>
   <wsdl:message name="IService1_GetTraceInDirection_InputMessage">
     <wsdl:part name="parameters" element="tns:GetTraceInDirection" />
@@ -331,10 +377,12 @@
     <wsdl:operation name="GetTraceDateDirection">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTraceDateDirection" message="tns:IService1_GetTraceDateDirection_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTraceDateDirectionResponse" message="tns:IService1_GetTraceDateDirection_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IService1/GetTraceDateDirectionFaultExceptionFault" name="FaultExceptionFault" message="tns:IService1_GetTraceDateDirection_FaultExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetTraceDateInDirection">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTraceDateInDirection" message="tns:IService1_GetTraceDateInDirection_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTraceDateInDirectionResponse" message="tns:IService1_GetTraceDateInDirection_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IService1/GetTraceDateInDirectionFaultExceptionFault" name="FaultExceptionFault" message="tns:IService1_GetTraceDateInDirection_FaultExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetTraceInDirection">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTraceInDirection" message="tns:IService1_GetTraceInDirection_InputMessage" />
@@ -369,6 +417,10 @@
         <wsp:PolicyReference URI="#WSHttpBinding_IService1_GetTraceDateDirection_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <wsp:PolicyReference URI="#WSHttpBinding_IService1_GetTraceDateDirection_FaultExceptionFault_Fault" />
+        <soap12:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="GetTraceDateInDirection">
       <soap12:operation soapAction="http://tempuri.org/IService1/GetTraceDateInDirection" style="document" />
@@ -380,6 +432,10 @@
         <wsp:PolicyReference URI="#WSHttpBinding_IService1_GetTraceDateInDirection_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <wsp:PolicyReference URI="#WSHttpBinding_IService1_GetTraceDateInDirection_FaultExceptionFault_Fault" />
+        <soap12:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="GetTraceInDirection">
       <soap12:operation soapAction="http://tempuri.org/IService1/GetTraceInDirection" style="document" />
