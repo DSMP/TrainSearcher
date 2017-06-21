@@ -115,7 +115,7 @@ namespace WcfServiceLibrary1
 
                 foreach (var trace in path)
                 {
-                    pathList.Add(trace.ToString());//"FROM: " + trace.FromTown + " AT: " + trace.FromDate + " TO: " + trace.ToTown + " AT: " + trace.ToDate
+                    pathList.Add(trace.ToString());
                 }
 
                 List<string> newPath = new List<string>();
@@ -125,9 +125,7 @@ namespace WcfServiceLibrary1
 
             return toReturn;
             
-        }
-
-        // This Function Returns summation of two integer numbers
+        }        
 
         public int sum(int num1, int num2)
         {
